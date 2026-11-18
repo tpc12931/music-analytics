@@ -1,10 +1,13 @@
-# Student decision gate — approved 2026-11-18
+# Provisional data-processing decision log — student sign-off required
 
-The professor requires student approval for business framing and data-cleaning decisions. The student explicitly **approved decisions A–F on November 18, 2026**; this package computed a reproducible analysis under the following assumptions. The original archives were never altered.
+| Proposed step | Rows before → after | Implementation | Why and what it changes | Student approval |
+|---|---:|---|---|---|
+| Preserve user-uploaded source ZIPs, read expanded `.csv` contents with tab separator | 911,027 → 911,027 | `05_provisional_analysis.py` reads from archive | Publisher CSV extension is misleading; parsing preserves all columns | Pending formal sign-off |
+| Retain every published hit; sample 5 nonhits per hit with seed 314 | 911,027 → 71,754 | `RandomState(314).choice` | Meets approximate course binary correlation criterion but inflates hit prevalence to 16.7%; results not population predictions | **Pending formal sign-off** |
+| Parse literal `-` for numeric model predictors to missing | 71,754 → 71,754 | `pd.to_numeric(errors='coerce')` | Dashes are not true zero audio values | **Pending formal sign-off** |
+| Drop only missing predictor rows for both required models | 71,754 → 71,411 | `dropna(subset=model_cols + outcomes)` | 343 sampled rows omitted; all non-hits; report selection bias | **Pending formal sign-off** |
+| Encode explicit / solo-versus-collaboration binary flags | 71,411 → 71,411 | Mapping flags | Supplies categorical predictors under OLS | **Pending formal sign-off** |
+| Separate chart dataset; resolve duplicate song–week by highest score | 250,392 weekly rows → unique weekly pairs | Sort / drop duplicates | Preliminary tie policy; source has 13 duplicate song–week records | **Pending formal sign-off** |
+| Study first observed chart entries 2010–Oct 2018 | 20,402 charted songs → 2,479 songs | Window filter and eight subsequent weeks | Protects eight-week lookahead but may include right-censoring not visible in source | **Pending formal sign-off** |
 
-1. **Sampling:** Use all 11,959 Billboard hits and five seeded non-hit examples per hit, then report why these class-balanced probabilities are not real-world hit probabilities. A 5:1 sample passes the course's approximate |r| >= 0.20 binary threshold (instrumentalness r=-0.221 after exclusions). 1:1 alternatives appear to perform better but are more heavily prevalence-distorted. The 5:1 binary model's no-lift performance is an academically important finding, not a reason to hide it.
-2. **Missingness:** Convert `-` audio feature placeholders to missing, and exclude only rows missing any of the five predictors for both models (343 of 71,754 provisional rows, all from the non-hit sample). Do not replace dashes with zero.
-3. **Chart longevity:** Use the first observed Hot 100 week as chart debut, use chart presence during the following eight weeks as the longevity measure, and handle 13 duplicate song-week records by retaining the higher rank score. Missing chart weeks are not assumed to mean zero streams.
-4. **Interpretation:** Keep original hit/non-hit primary question, but explicitly change "predict before it goes viral" to "retrospectively explain Billboard classification and popularity"; use week-by-week chart history for a secondary longevity description only. Do not claim verified first-day or future chart forecasting.
-
-**Approval granted** in conversation, November 18, 2026, covering all four items above and decisions A–F. Remaining student tasks: review interpretations, complete authentic postmortem, compile in Overleaf, record camera-on presentation, and approve any public publishing of repo or video. A downloadable package does not imply submission.
+This log documents exploratory transformations already executed in separate generated artifacts, **not** changes to the original archives. No final academic analysis claim is approved until the student understands and signs off on these choices.
