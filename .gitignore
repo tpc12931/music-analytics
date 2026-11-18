@@ -1,0 +1,8 @@
+# Data archives are obtained separately from their original publisher.
+data/
+*.zip
+__pycache__/
+.pytest_cache/
+.DS_Store
+.env
+.env.*
