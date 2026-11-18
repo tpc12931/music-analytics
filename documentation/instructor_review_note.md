@@ -1,0 +1,7 @@
+# Instructor-facing clarification: sampling and correlation criterion
+
+The original **911,027-track** expanded MusicOSet corpus includes 11,959 Billboard Hot 100 hits (1.31%). The observed correlation between historical hit status and plausible release-era audio features is weaker than the course's suggested magnitude of 0.20.
+
+The student has **approved** a reproducible, fixed-seed 5:1 non-hit:hit sample to satisfy the dataset-screening rule (instrumentalness absolute r > 0.20 in that selected sample). This does **not** create information in the audio features; it changes the class prevalence and the measured association. Reported binary model statistics therefore apply only to the 5:1 sample, **not** all released tracks or even the full expanded corpus. At the course-mandated 0.5 cutoff, the hit model predicts no hits and performs exactly as well as predicting the majority class every time. The project does not claim future-song hit prediction.
+
+**Suggested instructor question:** Is a reproducibly stratified 5:1 sample acceptable for the project's approximate correlation viability rule if both the full-source correlation failure and the prevalence distortion are disclosed? The academic interpretation is unchanged regardless of the answer. If the instructor requires the unmodified population to meet that rule, this dataset **does not pass the viability gate as currently defined**, and a dataset or target revision is needed.
