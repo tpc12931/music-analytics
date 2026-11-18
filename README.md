@@ -1,5 +1,8 @@
 # BUAN 314–370 | MusicOSet: Hits, Non-hits, and Chart Longevity
 
+> **Repository publication status (2026-11-18):** The standalone interactive report and research documentation have been uploaded. The analysis scripts, figures, slide files, and PDFs from the prepared local project ZIP are not all uploaded here yet. GitHub Pages must be enabled at Settings → Pages → Deploy from a branch → `main` → `/docs`. Until the remaining files are uploaded, this repository is **not a complete replication package**.
+
+
 **Status: Student-approved analysis, November 18, 2026; deliverables pending student interpretation, recording, and publication.** This is a draft that the student must verify and interpret, not a published or approved final submission. Source data are not redistributable in this package without checking reuse permissions. No Sonora production code was modified.
 
 See `documentation/proposal.md` for the current cross-sectional research proposal and `documentation/decision_sheet.md` for precise student approvals. The earlier chart-momentum-only topic is **not** the main question.
